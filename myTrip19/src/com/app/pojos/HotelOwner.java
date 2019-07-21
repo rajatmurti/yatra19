@@ -6,6 +6,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "hotelOwner")
 public class HotelOwner {
+public HotelOwner() {
+	System.out.println("In hotelOwner constr");
+}
 	private Integer hoid;
 	private String name,username,password,address,city,contact,role;
 	private List<Hotel> hotel;
@@ -77,10 +80,12 @@ public class HotelOwner {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
 	@OneToMany(mappedBy = "ownedBy",cascade = CascadeType.ALL)
 	public List<Hotel> getHotel() {
 		return hotel;
 	}
+	
 	public void setHotel(List<Hotel> hotel) {
 		this.hotel = hotel;
 	}

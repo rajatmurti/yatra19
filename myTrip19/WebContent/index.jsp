@@ -1,13 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Yatra portal</title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h3>Welcome to yatra Consultations</h3>
-<a href="user/login">User Login</a>
+<jsp:include page="header.jsp" />
+
+<div class="container">
+  <h3>Welcome To Yatra </h3>
+  <p>Make your imagination into reality</p>
+ <a href="user/login" >Login</a>
+</div>
+
+<jsp:include page="footer.jsp" />
 </body>
 </html>

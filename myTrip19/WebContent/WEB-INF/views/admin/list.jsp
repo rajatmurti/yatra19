@@ -10,23 +10,22 @@
 </head>
 <body>
 <h4>Last Action Status : ${requestScope.status}</h4>
-	<h3>Vendor List</h3>
+	<h3>Admin Details</h3>
 	<table style="background-color: cyan; margin: auto;">
-		<c:forEach var="v" items="${requestScope.vendor_list}">
+		<c:forEach var="v" items="${requestScope.user_list}">
 
 			<tr>
-				<td>${v.name}</td>
-				<td>${v.email}</td>
-				<td>${v.city}</td>
-				<td>${v.phoneNo}</td>
-				<td><a href="<spring:url value='/admin/update?vid=${v.id}'/>">Update</a></td>
-				<td><a href="<spring:url value='/admin/delete?vid=${v.id}'/>">Delete</a></td>
-
+				<td>${v.username}</td>
+				<td>${v.password}</td>
+				<td>${v.priviledge}</td>
+				<td><a href="<spring:url value='/admin/update?vid=${v.loginId}'/>">Update</a></td>
+				<td><a href="<spring:url value='/admin/delete?vid=${v.loginId}'/>">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<h5>
 		<a href="<spring:url value='/admin/add'/>">Add New Vendor</a>
+			<a href="<spring:url value='/hotelowner/registerhowner'/>">Add Hotel Owner</a>
 	</h5>
 
 </body>

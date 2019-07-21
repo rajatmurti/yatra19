@@ -1,23 +1,25 @@
 package com.app.pojos;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.*;
-import com.app.pojos.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "hotel")
 public class Hotel {
 private Integer hid;
 //public HotelOwner ho;
 private String hname, address,city,restoAvail,type,noOfRooms,swim_pool;
+@DateTimeFormat(pattern = "yyyy-mm-dd")
 private Date openingDate;
 private HotelOwner ownedBy;
-public Hotel(Integer hid, String hname, String address,String city, String restoAvail, String type, String noOfRooms,
-		String swim_pool, Date openingDate) {
+private List<Rooms> room;
+public Hotel(String hname, String address,String city, String restoAvail, String type, String noOfRooms,
+		String swim_pool, Date openingDate,HotelOwner hotelowner) {
 	super();
-	this.hid = hid;
 	this.hname = hname;
 	this.address = address;
 	this.city = city;
@@ -26,9 +28,10 @@ public Hotel(Integer hid, String hname, String address,String city, String resto
 	this.noOfRooms = noOfRooms;
 	this.swim_pool = swim_pool;
 	this.openingDate = openingDate;
+	this.ownedBy=hotelowner;
 }
 public Hotel() {
-	System.out.println("in cotel constr");
+	System.out.println("in Hotel constr");
 }
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +41,6 @@ public Integer getHid() {
 public void setHid(Integer hid) {
 	this.hid = hid;
 }
-
 @Column(length = 20)
 public String getHname() {
 	return hname;
@@ -102,6 +104,13 @@ public HotelOwner getOwnedBy() {
 }
 public void setOwnedBy(HotelOwner ownedBy) {
 	this.ownedBy = ownedBy;
+}
+@OneToMany(mappedBy = "hotel",cascade = CascadeType.ALL)
+public List<Rooms> getRoom() {
+	return room;
+}
+public void setRoom(List<Rooms> room) {
+	this.room = room;
 }
 @Override
 public String toString() {

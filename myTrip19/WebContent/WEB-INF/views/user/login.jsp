@@ -18,19 +18,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
 
-button:hover {
-  opacity: 0.8;
-}
 
 /* Extra styles for the cancel button */
 .cancelbtn {
@@ -140,16 +128,14 @@ span.psw {
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
-
     <div class="container">
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
+      <input type="text" placeholder="Enter Password" name="psw" required>
       
+      <button type="submit">Login</button>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
